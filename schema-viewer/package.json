@@ -1,0 +1,24 @@
+{
+  "name": "dsx-exchange-schema-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "npm run copy-specs && next build && cp -r out/ ../docs/schema-viewer/",
+    "copy-specs": "mkdir -p specs && cp ../schema/schema/bms/bms.yaml specs/bms.yaml && cp ../schema/schema/power-management/power-management.yaml specs/power-management.yaml && cp ../schema/schema/nico/nico.yaml specs/nico.yaml && cp ../schema/schema/spiffe-exchange/pub-keysets.yaml specs/spiffe-exchange.yaml"
+  },
+  "dependencies": {
+    "@asyncapi/react-component": "^2.5.0",
+    "js-yaml": "^4.1.0",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "typescript": "^5.5.0"
+  }
+}
