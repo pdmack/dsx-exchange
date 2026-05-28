@@ -16,6 +16,10 @@ make -C local validate-nats     # Verify connectivity
 
 See `local/README.md` for the full set of evaluation targets including functional tests, performance benchmarks, and MQTT client tooling.
 
+If you already have access to a running broker and need to build or test an MQTT
+integration application, use the [Integrator Quickstart](integrator-quickstart.md)
+instead of this operator deployment flow.
+
 The rest of this page covers the production deployment path.
 
 ## Prerequisites
@@ -188,7 +192,7 @@ kubectl get pods -n dsx
 
 # Test MQTT connectivity
 mqttx pub -h $GATEWAY_IP -p 1883 -t test/topic -m "hello" \
-  -u "oauth2token" -P "$ACCESS_TOKEN" -V 3.1.1
+  -u "oauthtoken" -P "$ACCESS_TOKEN" -V 3.1.1
 
 # Test NATS connectivity
 nats pub test.topic "hello" --server nats://$GATEWAY_IP:4222
