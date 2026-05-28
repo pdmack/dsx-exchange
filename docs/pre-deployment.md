@@ -107,6 +107,17 @@ The generation script always produces mTLS keys (there is no flag to skip them).
 |--------|------|---------|
 | `nats-mtls-server-tls` | ca.crt, tls.crt, tls.key | mTLS server certificates |
 
+The chart does not create a cert-manager Certificate CR for `nats-mtls-server-tls`. Operators must provision this secret before deploying. Use cert-manager with your PKI Issuer, or create the secret manually:
+
+```bash
+kubectl -n dsx create secret generic nats-mtls-server-tls \
+  --from-file=ca.crt=ca.pem \
+  --from-file=tls.crt=server.pem \
+  --from-file=tls.key=server-key.pem
+```
+
+The server certificate SANs must include the hostname or IP that mTLS clients will connect to (see [Deployment — mTLS Hostname Agreement](getting-started.md#mtls-hostname-agreement)).
+
 **Leaf connections:**
 
 | Secret | Keys | Purpose |
@@ -285,6 +296,8 @@ spec:
 ```
 
 The `mqtt-mtls` listener uses Passthrough mode because TLS termination happens at the NATS pod to verify the client certificate.
+
+Because the mTLS route is a TLSRoute, the server certificate SANs, the TLSRoute `hostnames`, and the client broker URL must all agree on the same hostname (or IP). A mismatch causes a silent connection reset at the gateway layer. See [Deployment — mTLS Hostname Agreement](getting-started.md#mtls-hostname-agreement).
 
 ### Listener-to-Route Mapping
 

@@ -106,7 +106,7 @@ global:
           account: "CSC"
 ```
 
-If using OAuth2, configure the JWKS endpoint and issuer so the auth-callout can validate tokens. Without these, OAuth2 connections are silently rejected:
+If using OAuth2, configure the JWKS endpoint and issuer so the auth-callout can validate tokens. **This must be set on every cluster (CSC and each CPC)**, not just the CSC — without it, that cluster's auth-callout cannot validate JWTs and will silently reject all OAuth2 connections:
 
 ```yaml
 auth-callout:
@@ -142,6 +142,8 @@ global:
       cpcExports: ["sensor.>"]
 ```
 
+If using OAuth2, each CPC also needs the `auth-callout.serviceConfig.jwks` block — see the CSC section above. Without it, OAuth2 connections to this CPC are silently rejected.
+
 ## Cross-Layer Routing
 
 Cross-layer settings control which topics are copied between the CPC local topic space and the CSC unified topic space:
@@ -151,6 +153,8 @@ Cross-layer settings control which topics are copied between the CPC local topic
 | CPC to CSC | `cpcExports` | Copied with `cpc.{id}.` prefix added |
 | CSC to all CPCs | `cscExports` | Broadcast to all CPC topic spaces |
 | CSC to specific CPC | `cscPrefixedExports` | `cpc.{id}.` prefix stripped on delivery |
+
+**The three lists must not overlap.** A subject pattern that appears in more than one list creates cyclic NATS imports that crash the NATS pod (CrashLoopBackOff) with no user-facing error at install time.
 
 ## Gateway Configuration
 
@@ -185,7 +189,18 @@ global:
           gatewayName: event-bus-gateway
           gatewayNamespace: event-bus
           sectionName: mqtt-mtls
+          hostnames: ["event-bus.example.com"]
 ```
+
+### mTLS Hostname Agreement
+
+The `mqttMtls` route uses a TLSRoute (Passthrough mode). Three values must agree or clients get a silent connection reset:
+
+1. **Server certificate SANs** — the hostname or IP the cert is issued for
+2. **`mqttMtls.hostnames`** — the SNI values the TLSRoute accepts
+3. **Client broker URL** — MQTT clients derive SNI from the host portion of the URL
+
+If a client connects to `ssl://<LB-IP>:8883`, it sends SNI=`<LB-IP>`. If the TLSRoute hostname is a DNS name, Envoy drops the connection before the TLS handshake reaches the NATS pod. Either add the LB IP to both the cert SANs and the TLSRoute hostnames, or assign a DNS name to the LB IP and have clients use that name.
 
 ## Validation
 
