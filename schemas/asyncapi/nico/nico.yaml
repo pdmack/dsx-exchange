@@ -6,10 +6,7 @@ info:
   title: NICo Managed Host State Event Bus
   version: 1.0.0
   description: >
-    AsyncAPI specification for NICo Managed Host State change events.
-    This spec defines the message structure for publishing managed host state
-    transitions and related metadata including DPU states, host initialization,
-    validation, assignment, and reprovisioning states.
+    AsyncAPI specification for NICo Managed Host State change events. This spec defines the message structure for publishing managed host state transitions and related metadata including DPU states, host initialization, validation, assignment, and reprovisioning states.
 
     The MQTT topic path should follow the following format:
 
@@ -20,7 +17,6 @@ servers:
     host: broker.example.com
     protocol: mqtt
     description: MQTT broker for NICo managed host state events
-
 channels:
   managedHostState:
     address: "NICO/v1/machine/{machineId}/state"
@@ -30,7 +26,7 @@ channels:
     messages:
       stateChangeMessage:
         $ref: "#/components/messages/ManagedHostStateChangeMessage"
-
+    title: Managed Host State
 operations:
   publishManagedHostStateChange:
     action: send
@@ -39,9 +35,9 @@ operations:
     messages:
       - $ref: "#/channels/managedHostState/messages/stateChangeMessage"
     description: >
-      Publish managed host state change events when a host transitions
-      between states in the lifecycle.
+      Publish managed host state change events when a host transitions between states in the lifecycle.
 
+    title: Publish Managed Host State Change
   subscribeManagedHostStateChange:
     action: receive
     channel:
@@ -49,9 +45,9 @@ operations:
     messages:
       - $ref: "#/channels/managedHostState/messages/stateChangeMessage"
     description: >
-      Subscribe to managed host state change events for monitoring,
-      orchestration, and automation purposes.
+      Subscribe to managed host state change events for monitoring, orchestration, and automation purposes.
 
+    title: Subscribe Managed Host State Change
 components:
   messages:
     ManagedHostStateChangeMessage:
@@ -74,12 +70,9 @@ components:
           managed_host_state:
             $ref: "#/components/schemas/ManagedHostState"
             description: The managed host state object with state name and details.
-
   schemas:
     ManagedHostState:
-      description:
-        Possible Machine state-machine implementation Possible ManagedHost state-machine implementation Only DPU machine
-        field in DB will contain state. Host will be empty. DPU state field will be used to derive state for DPU and Host both.
+      description: Possible Machine state-machine implementation Possible ManagedHost state-machine implementation Only DPU machine field in DB will contain state. Host will be empty. DPU state field will be used to derive state for DPU and Host both.
       oneOf:
         - description: Dpu was discovered by a site-explorer and is being configuring via redfish.
           type: object
@@ -162,9 +155,7 @@ components:
               type: string
               enum:
                 - waitingforcleanup
-        - description:
-            A forced deletion process has been triggered by the admin CLI State controller will no longer manage the
-            Machine
+        - description: A forced deletion process has been triggered by the admin CLI State controller will no longer manage the Machine
           type: object
           required:
             - state
@@ -231,9 +222,7 @@ components:
               type: string
               enum:
                 - hostreprovision
-        - description:
-            State used to indicate the API is currently waiting on the machine to send attestation measurements, or waiting
-            for measurements to match a valid/approved measurement bundle, before continuing on towards a Ready state.
+        - description: State used to indicate the API is currently waiting on the machine to send attestation measurements, or waiting for measurements to match a valid/approved measurement bundle, before continuing on towards a Ready state.
           type: object
           required:
             - measuring_state
@@ -1461,23 +1450,16 @@ components:
     MeasuringState:
       description: MeasuringState contains states used for host attestion (or measured boot).
       oneOf:
-        - description:
-            WaitingForMeasurements is reported when the machine has reached a state where the API is now expecting measurements
-            from the machine, which Scout sends upon receiving an Action::Measure from the API.
+        - description: WaitingForMeasurements is reported when the machine has reached a state where the API is now expecting measurements from the machine, which Scout sends upon receiving an Action::Measure from the API.
           type: string
           enum:
             - waitingformeasurements
-        - description:
-            PendingBundle is reported when the API has received measurements from the machine, but the measurements do
-            not match a known bundle. At this point, a matching bundle needs to be created, either via "promoting" a measurement
-            report from a machine (through manual interaction or trusted approval automation), or by manually creating a new bundle.
+        - description: PendingBundle is reported when the API has received measurements from the machine, but the measurements do not match a known bundle. At this point, a matching bundle needs to be created, either via "promoting" a measurement report from a machine (through manual interaction or trusted approval automation), or by manually creating a new bundle.
           type: string
           enum:
             - pendingbundle
     NetworkConfigUpdateState:
-      description:
-        Tenant has requested network config update for the existing instance. At this point, instance config, instance
-        network config version are already increased.
+      description: Tenant has requested network config update for the existing instance. At this point, instance config, instance network config version are already increased.
       type: string
       enum:
         - waitingfornetworksegmenttobeready
@@ -1780,9 +1762,7 @@ components:
                 - lockdownhost
     ValidationState:
       oneOf:
-        - description:
-            "Host machine validation placeholder for DPU machine validation TODO: add DPU validation state SKU validatioon
-            can also be moved here, so that all validation done @ one place"
+        - description: "Host machine validation placeholder for DPU machine validation TODO: add DPU validation state SKU validatioon can also be moved here, so that all validation done @ one place"
           type: object
           required:
             - machine_validation
