@@ -88,15 +88,12 @@ info:
   contact:
     name: Grid Platform Team
     email: grid-platform@nvidia.com
-
 defaultContentType: application/cloudevents+json
-
 servers:
   production:
     host: broker.example.com
     protocol: mqtt
     description: MQTT broker for power management grid events
-
 channels:
   loadTargetSetChannel:
     address: grid/v1/isv/{identifier}/loadtarget/set
@@ -112,7 +109,7 @@ channels:
     bindings:
       mqtt:
         qos: 1
-
+    title: Load Target Set
   powerStateStatusChannel:
     address: grid/v1/poweragent/{identifier}/powerstate/status
     parameters:
@@ -128,7 +125,7 @@ channels:
     bindings:
       mqtt:
         qos: 1
-
+    title: Power State Status
   powerBreachAlertChannel:
     address: grid/v1/poweragent/{identifier}/powerbreach
     parameters:
@@ -144,7 +141,7 @@ channels:
     bindings:
       mqtt:
         qos: 2
-
+    title: Power Breach Alert
   powerBreachEnforcementChannel:
     address: grid/v1/infra/{infraAgentId}/powerbreach/enforcement
     parameters:
@@ -159,7 +156,7 @@ channels:
     bindings:
       mqtt:
         qos: 2
-
+    title: Power Breach Enforcement
 operations:
   publishLoadTargetSet:
     action: send
@@ -168,7 +165,7 @@ operations:
     summary: ISV → Power Management Agent (set load target command)
     messages:
       - $ref: '#/channels/loadTargetSetChannel/messages/loadTargetSet'
-
+    title: Publish Load Target Set
   subscribeLoadTargetSet:
     action: receive
     channel:
@@ -176,7 +173,7 @@ operations:
     summary: Power Management Agent subscribes to load target commands
     messages:
       - $ref: '#/channels/loadTargetSetChannel/messages/loadTargetSet'
-
+    title: Subscribe Load Target Set
   publishPowerStateStatus:
     action: send
     channel:
@@ -184,7 +181,7 @@ operations:
     summary: Power Management Agent → ISVs (power state snapshot)
     messages:
       - $ref: '#/channels/powerStateStatusChannel/messages/powerStateStatus'
-
+    title: Publish Power State Status
   subscribePowerStateStatus:
     action: receive
     channel:
@@ -192,7 +189,7 @@ operations:
     summary: ISVs subscribe to power state status updates
     messages:
       - $ref: '#/channels/powerStateStatusChannel/messages/powerStateStatus'
-
+    title: Subscribe Power State Status
   publishPowerBreachAlert:
     action: send
     channel:
@@ -200,7 +197,7 @@ operations:
     summary: Power Management Agent → Infra Agent + ISVs (breach alert)
     messages:
       - $ref: '#/channels/powerBreachAlertChannel/messages/powerBreachAlert'
-
+    title: Publish Power Breach Alert
   subscribePowerBreachAlert:
     action: receive
     channel:
@@ -208,7 +205,7 @@ operations:
     summary: Infra Agent and ISVs subscribe to breach alerts
     messages:
       - $ref: '#/channels/powerBreachAlertChannel/messages/powerBreachAlert'
-
+    title: Subscribe Power Breach Alert
   publishPowerBreachEnforcement:
     action: send
     channel:
@@ -216,7 +213,7 @@ operations:
     summary: Infra Agent → Power Management Agent + ISVs (enforcement outcome)
     messages:
       - $ref: '#/channels/powerBreachEnforcementChannel/messages/powerBreachEnforcement'
-
+    title: Publish Power Breach Enforcement
   subscribePowerBreachEnforcement:
     action: receive
     channel:
@@ -224,13 +221,12 @@ operations:
     summary: Power Management Agent and ISVs subscribe to enforcement outcomes
     messages:
       - $ref: '#/channels/powerBreachEnforcementChannel/messages/powerBreachEnforcement'
-
+    title: Subscribe Power Breach Enforcement
 components:
   schemas:
     # =========================================================================
     # Reusable Primitives
     # =========================================================================
-
     PowerUnit:
       type: object
       description: Power measurement with value and unit.
@@ -245,7 +241,6 @@ components:
           type: string
           enum: [watt, kilowatt, megawatt]
           description: Unit of measurement.
-
     Interval:
       type: object
       description: Time window for load target scheduling.
@@ -258,7 +253,6 @@ components:
           type: string
           format: date-time
           description: ISO 8601 UTC end time. If omitted, target remains in effect until replaced.
-
     Strategy:
       type: object
       description: Load shedding strategy configuration.
@@ -270,7 +264,6 @@ components:
             If true, DPS sheds load non-disruptively by adjusting DPM-enabled jobs.
             If the constraint cannot be satisfied, DPS sheds as much as possible and
             leaves the feed in a non-compliant state until workloads terminate.
-
     LoadConstraint:
       type: object
       description: Power limit constraint.
@@ -285,7 +278,6 @@ components:
           type: string
           enum: [watt, kilowatt, megawatt]
           description: Unit of measurement.
-
     FeedTags:
       type: array
       description: |
@@ -295,11 +287,9 @@ components:
         type: string
       examples:
         - [main-a, main-b]
-
     # =========================================================================
     # Breach and Enforcement Schemas
     # =========================================================================
-
     ShedHint:
       type: object
       description: |
@@ -327,7 +317,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/PowerUnit'
           description: Suggested power cap. Present when action is power_cap.
-
     EnforcementResult:
       type: object
       description: Per-resource enforcement outcome.
@@ -355,11 +344,9 @@ components:
           allOf:
             - $ref: '#/components/schemas/PowerUnit'
           description: The actual power cap applied, if different from the requested target_power.
-
     # =========================================================================
     # Feed State Schemas (for PowerStateStatus)
     # =========================================================================
-
     FeedMetadata:
       type: object
       description: Static feed configuration. Values don't change during a curtailment event.
@@ -377,7 +364,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/PowerUnit'
           description: Default power constraint when no load target is active.
-
     FeedTarget:
       type: object
       description: A load target for a feed — active or scheduled.
@@ -396,7 +382,6 @@ components:
           type: string
           format: uuid
           description: The correlationid from the grid.loadtarget.set.v1 that created this target.
-
     FeedState:
       type: object
       description: Current power state for a single feed.
@@ -442,11 +427,9 @@ components:
         compliant:
           type: boolean
           description: true if the calculated load is within the active target constraint. true when no target is active.
-
     # =========================================================================
     # Breach Detail Schemas
     # =========================================================================
-
     BreachDetails:
       type: object
       description: Breach identification and timing.
@@ -466,7 +449,6 @@ components:
           type: string
           format: date-time
           description: ISO 8601 UTC timestamp when the breach was resolved. Present only when status is resolved.
-
     BreachTarget:
       type: object
       description: The load target being breached.
@@ -478,11 +460,9 @@ components:
           description: The correlationid from the grid.loadtarget.set.v1 that established this target.
         load_constraint:
           $ref: '#/components/schemas/LoadConstraint'
-
     # =========================================================================
     # Event Data Payloads
     # =========================================================================
-
     SetLoadTargetData:
       type: object
       description: Payload for grid.loadtarget.set.v1.
@@ -509,7 +489,6 @@ components:
                   - type: 'null'
               strategy:
                 $ref: '#/components/schemas/Strategy'
-
     PowerStateStatusData:
       type: object
       description: Payload for grid.powerstate.status.v1.
@@ -524,7 +503,6 @@ components:
           description: Map of feed_tag to power state.
           additionalProperties:
             $ref: '#/components/schemas/FeedState'
-
     PowerBreachAlertData:
       type: object
       description: Payload for grid.powerbreach.alert.v1.
@@ -567,7 +545,6 @@ components:
           items:
             type: string
             enum: [SHUTDOWN_NODES, SHUTDOWN_RACKS, CUT_DATA_FEEDS, TRIP_BREAKERS]
-
     PowerBreachEnforcementData:
       type: object
       description: Payload for grid.powerbreach.enforcement.v1.
@@ -600,11 +577,9 @@ components:
           type: string
           format: date-time
           description: ISO 8601 UTC timestamp when enforcement completed.
-
     # =========================================================================
     # JWS Data Field Security
     # =========================================================================
-
     JwsCompactSerialization:
       type: string
       description: |
@@ -622,11 +597,9 @@ components:
         The payload, when verified, contains the JSON event data
         as defined by the message type schema.
       pattern: ^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$
-
     # =========================================================================
     # Base CloudEvents Schema
     # =========================================================================
-
     BaseCloudEvent:
       type: object
       description: |
@@ -694,11 +667,9 @@ components:
           description: |
             OPTIONAL per W3C Trace Context. Carries vendor-specific contextual
             information across tracing systems.
-
     # =========================================================================
     # Event-Specific CloudEvents Envelope Schemas
     # =========================================================================
-
     LoadTargetSetEvent:
       description: CloudEvents envelope for grid.loadtarget.set.v1.
       allOf:
@@ -716,7 +687,6 @@ components:
               oneOf:
                 - $ref: '#/components/schemas/JwsCompactSerialization'
                 - $ref: '#/components/schemas/SetLoadTargetData'
-
     PowerStateStatusEvent:
       description: CloudEvents envelope for grid.powerstate.status.v1.
       allOf:
@@ -734,7 +704,6 @@ components:
               oneOf:
                 - $ref: '#/components/schemas/JwsCompactSerialization'
                 - $ref: '#/components/schemas/PowerStateStatusData'
-
     PowerBreachAlertEvent:
       description: CloudEvents envelope for grid.powerbreach.alert.v1.
       allOf:
@@ -752,7 +721,6 @@ components:
               oneOf:
                 - $ref: '#/components/schemas/JwsCompactSerialization'
                 - $ref: '#/components/schemas/PowerBreachAlertData'
-
     PowerBreachEnforcementEvent:
       description: CloudEvents envelope for grid.powerbreach.enforcement.v1.
       allOf:
@@ -770,7 +738,6 @@ components:
               oneOf:
                 - $ref: '#/components/schemas/JwsCompactSerialization'
                 - $ref: '#/components/schemas/PowerBreachEnforcementData'
-
   messages:
     LoadTargetSetMessage:
       name: LoadTargetSetMessage
@@ -779,7 +746,6 @@ components:
       contentType: application/cloudevents+json
       payload:
         $ref: '#/components/schemas/LoadTargetSetEvent'
-
     PowerStateStatusMessage:
       name: PowerStateStatusMessage
       title: Power State Status
@@ -787,7 +753,6 @@ components:
       contentType: application/cloudevents+json
       payload:
         $ref: '#/components/schemas/PowerStateStatusEvent'
-
     PowerBreachAlertMessage:
       name: PowerBreachAlertMessage
       title: Power Breach Alert
@@ -795,7 +760,6 @@ components:
       contentType: application/cloudevents+json
       payload:
         $ref: '#/components/schemas/PowerBreachAlertEvent'
-
     PowerBreachEnforcementMessage:
       name: PowerBreachEnforcementMessage
       title: Power Breach Enforcement
@@ -803,13 +767,11 @@ components:
       contentType: application/cloudevents+json
       payload:
         $ref: '#/components/schemas/PowerBreachEnforcementEvent'
-
   parameters:
     identifier:
       description: Unique identifier of the ISV, power agent, or infrastructure agent.
     infraAgentId:
       description: Unique identifier of the Infrastructure Management Agent.
-
   securitySchemes:
     oauth2Ssa:
       type: oauth2
@@ -819,7 +781,6 @@ components:
           tokenUrl: https://auth.example.com/token
           availableScopes:
             mqtt: Access to MQTT topics
-
     mTLS:
       type: X509
       description: Mutual TLS with client certificate signed by cluster CA.

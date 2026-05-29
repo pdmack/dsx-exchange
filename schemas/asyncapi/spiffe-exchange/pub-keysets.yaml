@@ -15,13 +15,11 @@ info:
 
     Payloads conform to RFC 7517 (JSON Web Key). Only public key material is
     published on this channel.
-
 servers:
   production:
     host: broker.example.com
     protocol: mqtt
     description: MQTT broker for SPIFFE exchange public key distribution
-
 channels:
   pubKeysets:
     address: "spiffe-exchange/v1/pub-keysets/tenant/{tenant_domain}/kid/{kid}"
@@ -33,7 +31,7 @@ channels:
     messages:
       jwk:
         $ref: "#/components/messages/JwkMessage"
-
+    title: Public Key Sets
 operations:
   publishPubKeyset:
     action: send
@@ -42,9 +40,9 @@ operations:
     messages:
       - $ref: "#/channels/pubKeysets/messages/jwk"
     description: >
-      Publish one JWK for the given tenant and kid. Publishers (e.g. SPIRE)
-      use this to advertise a public key for verification or encryption.
+      Publish one JWK for the given tenant and kid. Publishers (e.g. SPIRE) use this to advertise a public key for verification or encryption.
 
+    title: Publish Public Key Set
   subscribePubKeyset:
     action: receive
     channel:
@@ -52,9 +50,9 @@ operations:
     messages:
       - $ref: "#/channels/pubKeysets/messages/jwk"
     description: >
-      Subscribe to public key updates for a tenant and kid. Each message
-      carries one JWK. Consumers use the key to verify signatures or encrypt.
+      Subscribe to public key updates for a tenant and kid. Each message carries one JWK. Consumers use the key to verify signatures or encrypt.
 
+    title: Subscribe Public Key Set
 components:
   messages:
     JwkMessage:
@@ -63,15 +61,14 @@ components:
       contentType: application/json
       payload:
         $ref: "#/components/schemas/Jwk"
-
   schemas:
     Jwk:
       type: object
       required:
         - kty
       description: >
-        Single JSON Web Key per RFC 7517. Only public key parameters are included
-        on this channel. Key type (kty) determines which additional members are present.
+        Single JSON Web Key per RFC 7517. Only public key parameters are included on this channel. Key type (kty) determines which additional members are present.
+
       properties:
         kty:
           type: string
