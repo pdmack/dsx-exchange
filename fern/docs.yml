@@ -75,3 +75,157 @@ navigation:
         path: ../docs/schema-spiffe-exchange.mdx
         slug: spiffe-exchange
 
+redirects:
+  # BMS — overview moved, sub-pages removed
+  - source: /dsx-exchange/schema/bms-event-bus/overview
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/messages
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/schemas
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/ahu/ahu-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/ahu/ahu-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/ats/ats-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/ats/ats-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/bess/bess-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/bess/bess-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/breaker/breaker-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/breaker/breaker-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/cdu/cdu-integration-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/cdu/cdu-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/cdu/cdu-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/chiller/chiller-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/chiller/chiller-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/cooling-tower/coolingtower-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/cooling-tower/coolingtower-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/crac/crac-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/crac/crac-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/crah/crah-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/crah/crah-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/damper/damper-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/damper/damper-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/fan/fan-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/fan/fan-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/generator/generator-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/generator/generator-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/generic-object/genericobject-integration-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/generic-object/genericobject-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/generic-object/genericobject-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/hx/hx-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/hx/hx-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/power-meter/powermeter-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/power-meter/powermeter-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/pump/pump-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/pump/pump-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/rack/rack-integration-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/rack/rack-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/rack/rack-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/sensor/sensor-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/sensor/sensor-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/shunt/shunt-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/shunt/shunt-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/system/system-bms-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/system/system-integration-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/system/system-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/tank/tank-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/tank/tank-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/ups/ups-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/ups/ups-value
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/valve/valve-metadata
+    destination: /dsx-exchange/schema/bms
+  - source: /dsx-exchange/schema/bms-event-bus/operations/valve/valve-value
+    destination: /dsx-exchange/schema/bms
+  # Power Management — overview moved, sub-pages removed
+  - source: /dsx-exchange/schema/power-management/overview
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/messages
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/schemas
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/publishloadtargetset
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/publishpowerbreachalert
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/publishpowerbreachenforcement
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/publishpowerstatestatus
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/subscribeloadtargetset
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/subscribepowerbreachalert
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/subscribepowerbreachenforcement
+    destination: /dsx-exchange/schema/power-management
+  - source: /dsx-exchange/schema/power-management/operations/subscribepowerstatestatus
+    destination: /dsx-exchange/schema/power-management
+  # NICo — overview moved, sub-pages removed
+  - source: /dsx-exchange/schema/nico/overview
+    destination: /dsx-exchange/schema/nico
+  - source: /dsx-exchange/schema/nico/messages
+    destination: /dsx-exchange/schema/nico
+  - source: /dsx-exchange/schema/nico/schemas
+    destination: /dsx-exchange/schema/nico
+  - source: /dsx-exchange/schema/nico/operations/publishmanagedhoststatechange
+    destination: /dsx-exchange/schema/nico
+  - source: /dsx-exchange/schema/nico/operations/subscribemanagedhoststatechange
+    destination: /dsx-exchange/schema/nico
+  # SPIFFE Exchange — overview moved, sub-pages removed
+  - source: /dsx-exchange/schema/spiffe-exchange/overview
+    destination: /dsx-exchange/schema/spiffe-exchange
+  - source: /dsx-exchange/schema/spiffe-exchange/messages
+    destination: /dsx-exchange/schema/spiffe-exchange
+  - source: /dsx-exchange/schema/spiffe-exchange/schemas
+    destination: /dsx-exchange/schema/spiffe-exchange
+  - source: /dsx-exchange/schema/spiffe-exchange/operations/publishpubkeyset
+    destination: /dsx-exchange/schema/spiffe-exchange
+  - source: /dsx-exchange/schema/spiffe-exchange/operations/subscribepubkeyset
+    destination: /dsx-exchange/schema/spiffe-exchange
+
