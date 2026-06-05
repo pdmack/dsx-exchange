@@ -17,6 +17,10 @@ title: DSX Exchange
 # Content navigation from here down
 #==============================================================================
 
+experimental:
+  mdx-components:
+    - ./components
+
 check:
   rules:
     broken-links: error
@@ -63,16 +67,16 @@ navigation:
   - section: Schema
     contents:
       - page: BMS Event Bus
-        path: ../docs/schema-bms.mdx
+        path: ./pages/schema-bms.mdx
         slug: bms
       - page: Power Management
-        path: ../docs/schema-power-management.mdx
+        path: ./pages/schema-power-management.mdx
         slug: power-management
       - page: NICo Host State
-        path: ../docs/schema-nico.mdx
+        path: ./pages/schema-nico.mdx
         slug: nico
       - page: SPIFFE Exchange
-        path: ../docs/schema-spiffe-exchange.mdx
+        path: ./pages/schema-spiffe-exchange.mdx
         slug: spiffe-exchange
 
 redirects:

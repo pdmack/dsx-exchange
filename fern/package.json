@@ -1,0 +1,13 @@
+{
+  "name": "fern",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-schema-viewer.mjs"
+  },
+  "dependencies": {
+    "@asyncapi/react-component": "^3.1.3"
+  },
+  "devDependencies": {
+    "@asyncapi/parser": "^3.6.0"
+  }
+}
