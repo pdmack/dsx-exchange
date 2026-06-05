@@ -32,48 +32,60 @@ layout:
   tabs-placement: header
   hide-feedback: true
 
-navigation:
-  - section: DSX Exchange
+tabs:
+  documentation:
+    display-name: Documentation
     skip-slug: true
-    contents:
-      - page: Architecture
-        path: ../docs/architecture.md
-        slug: architecture
-      - page: Pre-Deployment
-        path: ../docs/pre-deployment.md
-        slug: pre-deployment
-      - page: Deployment
-        path: ../docs/getting-started.md
-        slug: deployment
-      - page: Integrator Quickstart
-        path: ../docs/integrator-quickstart.md
-        slug: integrator-quickstart
-      - page: Operations
-        path: ../docs/operations.md
-        slug: operations
-      - page: Authentication
-        path: ../docs/authentication.md
-        slug: authentication
-      - page: BMS Integration
-        path: ../docs/bms-integration.md
-        slug: bms-integration
-      - page: Validated Capabilities
-        path: ../docs/testing.md
-        slug: validated-capabilities
-  - section: Schema
-    contents:
-      - page: BMS Event Bus
-        path: ../docs/schema-bms.mdx
-        slug: bms
-      - page: Power Management
-        path: ../docs/schema-power-management.mdx
-        slug: power-management
-      - page: NICo Host State
-        path: ../docs/schema-nico.mdx
-        slug: nico
-      - page: SPIFFE Exchange
-        path: ../docs/schema-spiffe-exchange.mdx
-        slug: spiffe-exchange
+  schema:
+    display-name: Schema
+
+navigation:
+  - tab: documentation
+    layout:
+      - section: DSX Exchange
+        skip-slug: true
+        contents:
+          - page: Architecture
+            path: ../docs/architecture.md
+            slug: architecture
+          - page: Pre-Deployment
+            path: ../docs/pre-deployment.md
+            slug: pre-deployment
+          - page: Deployment
+            path: ../docs/getting-started.md
+            slug: deployment
+          - page: Integrator Quickstart
+            path: ../docs/integrator-quickstart.md
+            slug: integrator-quickstart
+          - page: Operations
+            path: ../docs/operations.md
+            slug: operations
+          - page: Authentication
+            path: ../docs/authentication.md
+            slug: authentication
+          - page: BMS Integration
+            path: ../docs/bms-integration.md
+            slug: bms-integration
+          - page: Validated Capabilities
+            path: ../docs/testing.md
+            slug: validated-capabilities
+  - tab: schema
+    layout:
+      - section: Schema
+        skip-slug: true
+        contents:
+          - page: BMS Event Bus
+            path: ../docs/schema-bms.mdx
+            slug: bms
+          - page: Power Management
+            path: ../docs/schema-power-management.mdx
+            slug: power-management
+          - page: NICo Host State
+            path: ../docs/schema-nico.mdx
+            slug: nico
+          - page: SPIFFE Exchange
+            path: ../docs/schema-spiffe-exchange.mdx
+            slug: spiffe-exchange
 
 redirects:
   # BMS — overview moved, sub-pages removed
