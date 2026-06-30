@@ -35,378 +35,53 @@ layout:
   tabs-placement: header
   hide-feedback: true
 
-navigation:
-  - section: DSX Exchange
+tabs:
+  documentation:
+    display-name: Documentation
     skip-slug: true
-    contents:
-      - page: Architecture
-        path: ../docs/architecture.md
-        slug: architecture
-      - page: Stateless Async Bus
-        path: ../docs/stateless-async-bus.md
-        slug: stateless-async-bus
-      - page: Pre-Deployment
-        path: ../docs/pre-deployment.md
-        slug: pre-deployment
-      - page: Deployment
-        path: ../docs/getting-started.md
-        slug: deployment
-      - page: Integrator Quickstart
-        path: ../docs/integrator-quickstart.md
-        slug: integrator-quickstart
-      - page: Operations
-        path: ../docs/operations.md
-        slug: operations
-      - page: Authentication
-        path: ../docs/authentication.md
-        slug: authentication
-      - page: BMS Integration
-        path: ../docs/bms-integration.md
-        slug: bms-integration
-      - page: Validated Capabilities
-        path: ../docs/testing.md
-        slug: validated-capabilities
-  - section: Schema
-    contents:
-      - section: BMS Event Bus
+  schema:
+    display-name: Schema
+
+navigation:
+  - tab: documentation
+    layout:
+      - section: DSX Exchange
+        skip-slug: true
         contents:
-          - page: Overview
-            path: ../docs/schema-bms.mdx
-            slug: overview
-          - section: Operations
-            contents:
-              - section: AHU
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-ahu-metadata.mdx
-                    slug: ahu-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-ahu-value.mdx
-                    slug: ahu-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-ahu-integration-value.mdx
-                    slug: ahu-integration-value
-              - section: ATS
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-ats-metadata.mdx
-                    slug: ats-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-ats-value.mdx
-                    slug: ats-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-ats-integration-value.mdx
-                    slug: ats-integration-value
-              - section: BESS
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-bess-metadata.mdx
-                    slug: bess-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-bess-value.mdx
-                    slug: bess-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-bess-integration-value.mdx
-                    slug: bess-integration-value
-              - section: Breaker
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-breaker-metadata.mdx
-                    slug: breaker-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-breaker-value.mdx
-                    slug: breaker-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-breaker-integration-value.mdx
-                    slug: breaker-integration-value
-              - section: CDU
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-cdu-metadata.mdx
-                    slug: cdu-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-cdu-value.mdx
-                    slug: cdu-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-cdu-integration-value.mdx
-                    slug: cdu-integration-value
-              - section: Chiller
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-chiller-metadata.mdx
-                    slug: chiller-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-chiller-value.mdx
-                    slug: chiller-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-chiller-integration-value.mdx
-                    slug: chiller-integration-value
-              - section: Cooling Tower
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-coolingtower-metadata.mdx
-                    slug: coolingtower-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-coolingtower-value.mdx
-                    slug: coolingtower-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-coolingtower-integration-value.mdx
-                    slug: coolingtower-integration-value
-              - section: CRAC
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-crac-metadata.mdx
-                    slug: crac-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-crac-value.mdx
-                    slug: crac-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-crac-integration-value.mdx
-                    slug: crac-integration-value
-              - section: CRAH
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-crah-metadata.mdx
-                    slug: crah-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-crah-value.mdx
-                    slug: crah-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-crah-integration-value.mdx
-                    slug: crah-integration-value
-              - section: Damper
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-damper-metadata.mdx
-                    slug: damper-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-damper-value.mdx
-                    slug: damper-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-damper-integration-value.mdx
-                    slug: damper-integration-value
-              - section: Fan
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-fan-metadata.mdx
-                    slug: fan-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-fan-value.mdx
-                    slug: fan-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-fan-integration-value.mdx
-                    slug: fan-integration-value
-              - section: Generator
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-generator-metadata.mdx
-                    slug: generator-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-generator-value.mdx
-                    slug: generator-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-generator-integration-value.mdx
-                    slug: generator-integration-value
-              - section: Generic Object
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-genericobject-metadata.mdx
-                    slug: genericobject-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-genericobject-value.mdx
-                    slug: genericobject-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-genericobject-integration-value.mdx
-                    slug: genericobject-integration-value
-              - section: HX
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-hx-metadata.mdx
-                    slug: hx-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-hx-value.mdx
-                    slug: hx-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-hx-integration-value.mdx
-                    slug: hx-integration-value
-              - section: Power Meter
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-powermeter-metadata.mdx
-                    slug: powermeter-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-powermeter-value.mdx
-                    slug: powermeter-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-powermeter-integration-value.mdx
-                    slug: powermeter-integration-value
-              - section: Pump
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-pump-metadata.mdx
-                    slug: pump-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-pump-value.mdx
-                    slug: pump-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-pump-integration-value.mdx
-                    slug: pump-integration-value
-              - section: Rack
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-rack-metadata.mdx
-                    slug: rack-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-rack-value.mdx
-                    slug: rack-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-rack-integration-value.mdx
-                    slug: rack-integration-value
-              - section: Sensor
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-sensor-metadata.mdx
-                    slug: sensor-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-sensor-value.mdx
-                    slug: sensor-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-sensor-integration-value.mdx
-                    slug: sensor-integration-value
-              - section: Shunt
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-shunt-metadata.mdx
-                    slug: shunt-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-shunt-value.mdx
-                    slug: shunt-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-shunt-integration-value.mdx
-                    slug: shunt-integration-value
-              - section: System
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-system-metadata.mdx
-                    slug: system-metadata
-                  - page: BMS Value
-                    path: ../docs/schema-bms-system-bms-value.mdx
-                    slug: system-bms-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-system-integration-value.mdx
-                    slug: system-integration-value
-              - section: Tank
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-tank-metadata.mdx
-                    slug: tank-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-tank-value.mdx
-                    slug: tank-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-tank-integration-value.mdx
-                    slug: tank-integration-value
-              - section: UPS
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-ups-metadata.mdx
-                    slug: ups-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-ups-value.mdx
-                    slug: ups-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-ups-integration-value.mdx
-                    slug: ups-integration-value
-              - section: Valve
-                contents:
-                  - page: Metadata
-                    path: ../docs/schema-bms-valve-metadata.mdx
-                    slug: valve-metadata
-                  - page: Value
-                    path: ../docs/schema-bms-valve-value.mdx
-                    slug: valve-value
-                  - page: Integration Value
-                    path: ../docs/schema-bms-valve-integration-value.mdx
-                    slug: valve-integration-value
-          - page: Messages
-            path: ../docs/schema-bms-messages.mdx
-            slug: messages
-          - page: Schemas
-            path: ../docs/schema-bms-schemas.mdx
-            slug: schemas
-      - section: Power Management
-        contents:
-          - page: Overview
-            path: ../docs/schema-power-management.mdx
-            slug: overview
-          - section: Operations
-            contents:
-              - page: Publish Load Target Set
-                path: ../docs/schema-power-management-publishloadtargetset.mdx
-                slug: publishloadtargetset
-              - page: Publish Power Breach Alert
-                path: ../docs/schema-power-management-publishpowerbreachalert.mdx
-                slug: publishpowerbreachalert
-              - page: Publish Power Breach Enforcement
-                path: ../docs/schema-power-management-publishpowerbreachenforcement.mdx
-                slug: publishpowerbreachenforcement
-              - page: Publish Power State Status
-                path: ../docs/schema-power-management-publishpowerstatestatus.mdx
-                slug: publishpowerstatestatus
-              - page: Subscribe Load Target Set
-                path: ../docs/schema-power-management-subscribeloadtargetset.mdx
-                slug: subscribeloadtargetset
-              - page: Subscribe Power Breach Alert
-                path: ../docs/schema-power-management-subscribepowerbreachalert.mdx
-                slug: subscribepowerbreachalert
-              - page: Subscribe Power Breach Enforcement
-                path: ../docs/schema-power-management-subscribepowerbreachenforcement.mdx
-                slug: subscribepowerbreachenforcement
-              - page: Subscribe Power State Status
-                path: ../docs/schema-power-management-subscribepowerstatestatus.mdx
-                slug: subscribepowerstatestatus
-          - page: Messages
-            path: ../docs/schema-power-management-messages.mdx
-            slug: messages
-          - page: Schemas
-            path: ../docs/schema-power-management-schemas.mdx
-            slug: schemas
-      - section: NICo Host State
-        slug: nico
-        contents:
-          - page: Overview
-            path: ../docs/schema-nico.mdx
-            slug: overview
-          - section: Operations
-            contents:
-              - page: Publish Managed Host State Change
-                path: ../docs/schema-nico-publishmanagedhoststatechange.mdx
-                slug: publishmanagedhoststatechange
-              - page: Subscribe Managed Host State Change
-                path: ../docs/schema-nico-subscribemanagedhoststatechange.mdx
-                slug: subscribemanagedhoststatechange
-          - page: Messages
-            path: ../docs/schema-nico-messages.mdx
-            slug: messages
-          - page: Schemas
-            path: ../docs/schema-nico-schemas.mdx
-            slug: schemas
-      - section: SPIFFE Exchange
-        contents:
-          - page: Overview
-            path: ../docs/schema-spiffe-exchange.mdx
-            slug: overview
-          - section: Operations
-            contents:
-              - page: Publish Pub Key Set
-                path: ../docs/schema-spiffe-exchange-publishpubkeyset.mdx
-                slug: publishpubkeyset
-              - page: Subscribe Pub Key Set
-                path: ../docs/schema-spiffe-exchange-subscribepubkeyset.mdx
-                slug: subscribepubkeyset
-          - page: Messages
-            path: ../docs/schema-spiffe-exchange-messages.mdx
-            slug: messages
-          - page: Schemas
-            path: ../docs/schema-spiffe-exchange-schemas.mdx
-            slug: schemas
+          - page: Architecture
+            path: ../docs/architecture.md
+            slug: architecture
+          - page: Stateless Async Bus
+            path: ../docs/stateless-async-bus.md
+            slug: stateless-async-bus
+          - page: Pre-Deployment
+            path: ../docs/pre-deployment.md
+            slug: pre-deployment
+          - page: Deployment
+            path: ../docs/getting-started.md
+            slug: deployment
+          - page: Integrator Quickstart
+            path: ../docs/integrator-quickstart.md
+            slug: integrator-quickstart
+          - page: Operations
+            path: ../docs/operations.md
+            slug: operations
+          - page: Authentication
+            path: ../docs/authentication.md
+            slug: authentication
+          - page: BMS Integration
+            path: ../docs/bms-integration.md
+            slug: bms-integration
+          - page: Validated Capabilities
+            path: ../docs/testing.md
+            slug: validated-capabilities
+  - tab: schema
+    layout:
+      - api: BMS Event Bus
+        api-name: bms
+      - api: NICo Host State
+        api-name: nico
+      - api: Power Management
+        api-name: power-management
+      - api: SPIFFE Exchange
+        api-name: spiffe-exchange

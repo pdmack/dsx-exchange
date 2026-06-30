@@ -1,0 +1,3 @@
+api:
+  specs:
+    - asyncapi: ../../../schemas/asyncapi/spiffe-exchange/pub-keysets.yaml

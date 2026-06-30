@@ -1,0 +1,3 @@
+api:
+  specs:
+    - asyncapi: ../../../schemas/asyncapi/power-management/power-management.yaml

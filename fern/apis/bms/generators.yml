@@ -1,0 +1,3 @@
+api:
+  specs:
+    - asyncapi: ../../../schemas/asyncapi/bms/bms.yaml
